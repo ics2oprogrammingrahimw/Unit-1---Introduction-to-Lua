@@ -47,28 +47,3 @@ areaText.y = display.contentHeight/2
 --set the color of the newText
 areaText:setTextColor(1,1,1)
 
---crrating the variables needed for area of a circle
-local radius = 100
-local pi = 3.14
-local areaOfCircle 
-local circleText
-local myCircle
-
-
-myCircle = display.newCircle(700, 130, radius * radius * pi)
-
--- setting border size
-myCircle.strokeWidth = 20
-
-
---setting border color
- myCircle:setStrokeColor(0.9, 0.9, 0.)
-
-myCircle:setFillColor(143/255, 208/255, 179/255)
-
-areaOfCircle = radius * radius * pi
-
-circleText = display.newText("The area of this circle with a radius of \n" .. 
-	radius .. " x Pi(" .. pi .. ") is " .. areaOfCircle.. " pixels². "
-	, 375, 330, Arial,)
-
