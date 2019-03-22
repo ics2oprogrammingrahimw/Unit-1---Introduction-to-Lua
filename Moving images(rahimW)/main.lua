@@ -11,6 +11,10 @@ scrollSpeed = 3
 
 -- background image with the width and height
 local backgroundImage = display.newImageRect("Images/background.png", 2048, 1536)
+local CashSound = audio.loadSound( "Sounds/Cash.mp3")
+local CashSoundChannel 
+local WrongSound = audio.loadSound( "Sounds.wrongSound(1).mp3")
+local WrongSoundChannel 
 
 -- character image with with width and height 
 local beetleship = display.newImageRect("Images/beetleship.png", 200, 200)
@@ -31,6 +35,7 @@ local function MoveShip(event)
 	-- add the scroll speed the the x-value of the ship 
 	beetleship.x = beetleship.x + scrollSpeed
 	beetleship.alpha = beetleship.alpha + 0.005
+	WrongSoundChannel = audio.play(wrongSound)
 end
 
 Runtime:addEventListener("enterFrame", MoveShip)
@@ -49,6 +54,7 @@ local function MovePlanet(event)
 
 	planet.x = planet.x - scrollSpeed
 	planet.alpha = planet.alpha - 0.002
+	CashSoundChannel = audio.play(cashSound)
 end
 
 Runtime:addEventListener ("enterFrame", MovePlanet)

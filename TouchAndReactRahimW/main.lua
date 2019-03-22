@@ -9,6 +9,14 @@ display.setStatusBar(display.HiddenStatusBar)
 
 display.setDefault ("background", 102/255, 51/255, 0/255)
 
+local Sound1 = audio.loadSound ( " Sounds/Correct Answer Sound Effect.mp3")
+local Sound1Channel
+local Sound2 = audio.loadSound ( " Sound/Wrong Buzzer Sound Effect.mp3")
+local Sound2Channel
+
+
+
+
 local bluebutton = display.newImageRect("Images/Fast Button Inactive@2x.png",198, 96)
 bluebutton.x = display.contentWidth/2
 bluebutton.y = display.contentHeight/2
@@ -37,6 +45,7 @@ local function BlueButtonListener(touch)
 		redbutton.isVisible = true
 		textObject.isVisible = true
 		Click.isVisible = true
+		Sound1Channel = audio.play(Sound1)
 	end
 
 	if (touch.phase == "ended") then
@@ -48,3 +57,14 @@ end
 
 bluebutton:addEventListener("touch", BlueButtonListener)
 
+local function RedButtonListener(touch)
+	if (touch.phase == "began") then
+		bluebutton.isVisible = true
+		redbutton.isVisible = false
+		Click.isVisible = false
+		textObject.isVisible = false
+		Sound2Channel = audio.play (Sound2)
+	end
+end
+
+redbutton:addEventListener("touch", RedButtonListener)
