@@ -1,7 +1,7 @@
 -- Title: PhysicsAndCollisions
 -- Name: Your Name
 -- Course: ICS2O/3C
--- This program...displays bouncing balls with a background and a beam 
+-- This program...displays bouncing balls with a background and a beam that interacts with the ball
 
 display.setStatusBar(display.HiddenStatusBar)
 
@@ -13,7 +13,6 @@ local ground = display.newImage("Images/ground.png", 0, 0)
 
 ground.x = display.contentWidth/2
 ground.y = 768
-
 ground.width = display.contentWidth
 
 physics.addBody(ground, "static", {friction=0.5, bounce=0.3})
@@ -38,12 +37,19 @@ local bkg = display.newImage("Images/bkg.png", 0, 0)
 bkg.x = display.contentCenterX
 bkg.y = display.contentCenterY
 
+
+
 bkg.width = display.contentWidth/2
 bkg.height = display.contentHeight/2
 
 bkg:toBack()
 
 bkg:scale(3,3)
+
+--------------------------------------------------------------------------------------
+--Local functions
+--------------------------------------------------------------------------------------
+
 local function firstball()
 	
 	local ball1 = display.newImage("Images/super_ball.png", 0, 0)
@@ -82,7 +88,9 @@ local function FourthBall()
 	physics.addBody(Ball4, {density=1.0, friction=0.2, bounce=0.6})
 end
 
-
+--------------------------------------------------------------------
+--Function calls
+-----------------------------------------------------------------------------
 
 timer.performWithDelay( 0, thirdball)
 

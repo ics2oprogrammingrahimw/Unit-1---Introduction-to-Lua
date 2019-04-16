@@ -11,18 +11,20 @@ local secondsLeft = 5
 local clockText
 local countDownTimer
 
-local lives = 3
+local lives = 4
 local heart1
 local heart2
 local heart3
 
-heart1 = display.newImageRect("Images/heart.png" 100, 100)
+heart1 = display.newImageRect("Images/heart.png" 100, 100 )
 heart1.x = display.contentWidth * 7 / 8
 heart1.y = display.contentHeight * 1 / 7
 
 heart2 = display.newImageRect("Images/heart.png", 100, 100)
 heart2.x = display.contentWidth * 6 / 8
 heart2.y = display.contentHeight * 1 / 7
+
+heart3 = display.newImageRect
 
 
 
@@ -34,10 +36,11 @@ local function UpdateTime()
 
 	if (secondsLeft == 0 )then 
 
+
 		secondsLeft = totalSeconds
 		lives = lives - 1
 
-		if (lives == 2) then
+		if (lives == 3) then
 			heart2.isVisible = false
 		elseif (lives == 1) then
 			heart1.isVisible = false
